@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="output.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Multi-step form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+</head>
+<body class="flex justify-center items-center h-screen bg-blue-100">
+
+
+  <main class="flex flex-col bg-white rounded-lg w-full h-full sm:h-[40rem] sm:flex-row sm:w-[34rem]  md:w-[55rem]  p-4">
+  <div id="mobile-image" class="z-10 absolute w-full h-[30%] bg-[url('/dist/assets/images/bg-sidebar-mobile.svg')] top-0 left-0 overflow-hidden bg-cover sm:hidden"></div>
+
+  <!-- Sidebar start -->
+<div id="sidebar" class="flex items-end sm:items-start sm:bg-[url('/dist/assets/images/bg-sidebar-desktop.svg')] bg-cover z-30 rounded-lg w-auto h-[10%] sm:w-[30%] sm:h-[100%] ">
+  <div class="flex w-full h-[50%] sm:pt-[60px] items-top justify-center ">
+    <ul class="flex flex-row text-white w-3/4 justify-around sm:flex-col sm:item-start sm:items-start  sm:w-[100%] md:w-[80%] items-end sm:gap-1">
+      <div class="flex sm:items-center gap-2"><li id = "one"   class="border font-semibold pl-2 pr-2 sm:pr-0 sm:w-[50px] sm:px-5 sm:py-2 sm:m-0 rounded-full scale-125 sm:scale-75 sm:text-lg bg-blue-300">1</li> <div class="hidden sm:flex sm:flex-col "><p class="text-[.7em] opacity-50">STEP 1</p> <p class="font-medium text-[.9em]">YOUR INFO</p></div></div>
+      <div class="flex sm:items-center gap-2"><li id = "two"   class="border font-semibold pl-2 pr-2 sm:pr-0 sm:w-[50px] sm:px-5 sm:py-2 sm:m-0 rounded-full scale-125 sm:scale-75 sm:text-lg">2</li> <div class="hidden sm:flex sm:flex-col "><p class="text-[.7em] opacity-50">STEP 2</p> <p class="font-medium text-[.9em]">SELECT PLAN</p></div></div>
+      <div class="flex sm:items-center gap-2"><li id = "three" class="border font-semibold pl-2 pr-2 sm:pr-0 sm:w-[50px] sm:px-5 sm:py-2 sm:m-0 rounded-full scale-125 sm:scale-75 sm:text-lg">3</li> <div class="hidden sm:flex sm:flex-col "><p class="text-[.7em] opacity-50">STEP 3</p> <p class="font-medium text-[.9em]">ADD-ONS</p></div></div>
+      <div class="flex sm:items-center gap-2"><li id = "four"  class="border font-semibold pl-2 pr-2 sm:pr-0 sm:w-[50px] sm:px-5 sm:py-2 sm:m-0 rounded-full scale-125 sm:scale-75 sm:text-lg">4</li> <div class="hidden sm:flex sm:flex-col "><p class="text-[.7em] opacity-50">STEP 4</p> <p class="font-medium text-[.9em]">SUMMARY</p></div></div>
+    </ul>
+  </div>
+
+
+</div>
+<!-- Sidebar end -->
+
+<div id="container" class="flex flex-col justify-between items-center z-40  w-auto sm:w-[70%] h-[90%] sm:h-[100%]">
+
+  <form method="post" action="/" id="content" class="bg-white w-[90%] h-auto rounded-lg p-3 mt-20 sm:mt-14 text-[.9em]">
+
+<!-- Step 1 start -->
+<div id="step_1" class="flex  flex-col">
+  <h1 class="text-3xl font-bold">Personal info</h1>
+  <p class="opacity-80 pb-3">Please provide your name, email address, and phone number.</p>
+  <div class="pb-3 flex flex-col">
+    <label for="input1" class="text-[.9em]">Name</label>
+    <input type="text" id="input1" name="input1" placeholder="e.g. Stephen King" class="border p-2 rounded-sm h-10" required>
+  </div>
+  <div class="pb-3 flex flex-col">
+    <label for="input2" class="text-[.9em]">Email Address</label>
+    <input type="text" id="input2" name="input2" placeholder="e.g. stephenking@lorem.com" class="border p-2 rounded-sm h-10" required>
+  </div>
+  <div class="pb-3 flex flex-col">
+    <label for="input3" class="text-[.9em]">Phone Number</label>
+    <input type="number" id="input3" name="input3" placeholder="e.g. +1 234 567 890" class="border p-2 rounded-sm h-10" required>
+  </div>
+
+</div>
+<!-- Step 1 end -->
+
+
+
+<!-- Step 2 start -->
+<div id="step_2" class="hidden flex-col">
+  <h1 class="text-3xl font-bold">Select your plan</h1>
+  <p class="opacity-80 pb-3">You have the option of monthly or yearly billing.</p>
+  
+<div id="subs" class="flex flex-col sm:flex-row gap-3 justify-around">
+
+ <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 ">
+  <img src="/dist/assets/images/icon-arcade.svg" alt="" class="sm:w-10 sm:pb-5">
+  <div>
+    <p class="text-[1.4em] font-bold" id="arcade">Arcade</p>
+    <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="$9/mo">$9/mo</p>
+    <p class="sm:text-[1.1em]">2 months free</p>
+  </div>
+</div>
+
+
+ <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 ">
+  <img src="/dist/assets/images/icon-advanced.svg" alt="" class="sm:w-10 sm:pb-5">
+  <div>
+    <p class="text-[1.4em] font-bold" id="advanced">Advanced</p>
+    <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="$12/mo">$12/mo</p>
+    <p class="sm:text-[1.1em]">2 months free</p>
+  </div> 
+</div>
+
+
+ <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 ">
+  <img src="/dist/assets/images/icon-pro.svg" alt="" class="sm:w-10 sm:pb-5">
+  <div>
+    <p class="text-[1.4em] font-bold" id="pro">Pro</p>
+    <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="$15/mo">$15/mo</p>
+    <p class="sm:text-[1.1em]">2 months free</p>
+  </div>
+</div>
+ 
+</div>
+ 
+<div class="flex gap-3 w-[100%] items-center text-[1em] p-6 justify-around mt-4 rounded-sm h-10 bg-slate-100"><p>Monthly</p><span>toggle</span><p>Yearly</p></div>
+
+</div>
+<!-- Step 2 end -->
+
+
+
+
+<!-- Step 3 start -->
+<div id="step_3" class="hidden flex-col">
+  <h1 class="text-3xl font-bold">Pick add-ons</h1>
+  <p class="opacity-80 pb-3">Add-ons help enhance your gaming experience.</p>
+
+  <div class="flex bg-blue-200 rounded-md justify-around border border-black items-center p-2">
+    <input type="checkbox"  class="bg-green-400 scale-100">
+    <div>
+      <p class="text-[1.2em] font-bold" id="online">Online service</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40">Access to multiplayer games</p>
+    </div>
+    <span><p class="text-blue-800" id="$1/mo">+$1/mo</p></span>
+  </div>
+  
+
+
+  Larger storage
+Extra 1TB of cloud save
++$2/mo
+
+Customizable Profile
+Custom theme on your profile
++$2/mo
+
+
+</div>
+<!-- Step 3 end -->
+
+
+
+<!-- Step 4 start -->
+<div id="step_4" class="hidden flex-col">
+  <h1 class="text-3xl font-bold">Finishing up</h1>
+  <p class="opacity-80 pb-3">Double-check everything looks OK before confirming.</p>
+
+  
+  <!-- Dynamically add subscription and add-on selections here -->
+  <div class="flex flex-col bg-gray-100 rounded-md p-2 gap-4 mb-5">
+<div class="flex justify-between items-center border-b-2 border-gray-300 gap-4 pb-3">
+  <div>
+    <p class="text-[1.2em] font-bold" id="catalog">Arcade (Monthly)</p>
+    <p class="text-[1em] sm:text-[1.1em] opacity-40 underline">change</p>
+  </div> 
+  <p id="sub-0" class=" font-extrabold text-lg">mon</p>
+</div>
+<span class="flex justify-between"><p id="service-1">Online Service</p><p id="sub-1" class=" font-medium">mon</p></span>
+<span class="flex justify-between"><p id="service-2">Larger Storage</p><p id="sub-2" class=" font-medium">mon</p></span>
+  </div>
+
+  <div class="flex justify-between">
+    <p> Total (per month/year)</p> <p class="text-blue-700 font-bold">+12/mo</p>
+  </div>
+  
+ 
+  
+
+</div>
+
+<!-- Step 4 end -->
+
+
+
+
+<!-- Step 5 start -->
+<div id="step_5" class="hidden flex-col items-center text-[1.3em] text-center gap-3">
+  <img src="/dist/assets/images/icon-thank-you.svg" alt="" class=" pb-3 ">
+  <h1>Thank you!</h1>
+  <p class="opacity-50 ">Thanks for confirming your subscription! We hope you have fun 
+    using our platform. If you ever need support, please feel free 
+    to email us at support@loremgaming.com.</p>
+</div>
+
+<!-- Step 5 end -->
+
+
+
+</form>
+<!-- button -->
+
+  <div class="flex w-full h-[4em] justify-between items-center bg-white p-5">
+    <input type="submit" name="submit" id="btn_1" value="Go Back" class=" opacity-[0.4] font-medium" disabled>
+    <input type="button" id="btn_2" value="Next Step" class="rounded-md bg-blue-900 text-white p-2 font-medium">
+  </div>
+
+
+
+</div>
+
+
+</main>
+  
+  
+  <div class="attribution hidden sm:flex ">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Kelvin Asiamah Ntiri</a>.
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

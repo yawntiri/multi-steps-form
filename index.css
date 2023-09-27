@@ -1,0 +1,28 @@
+.attribution {
+     font-size: 11px; 
+     text-align: center; 
+     position: absolute;
+     bottom: 0;
+     overflow: hidden;
+}
+.attribution a { color: hsl(228, 45%, 44%); }
+@font-face{
+    font-family: 'ubuntu-bold';
+    src: url('/dist/assets/fonts/Ubuntu-Bold.ttf')format(woff2);
+}
+@font-face{
+    font-family: 'ubuntu-medium';
+    src: url('/dist/assets/fonts/Ubuntu-Medium.ttf')format(woff2);
+}
+@font-face{
+    font-family: 'ubuntu-regular';
+    src: url('/dist/assets/fonts/Ubuntu-Regular.ttf')format(woff2);
+}
+
+*{
+    font-family: ubuntu-regular;
+}
+h1{
+    
+    font-family: ubuntu-bold;
+}
