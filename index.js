@@ -138,6 +138,8 @@ const toggleOn=()=>{
     document.querySelector('#month1').innerHTML='2 months free';
     document.querySelector('#month2').innerHTML='2 months free';
     document.querySelector('#month3').innerHTML='2 months free';
+    document.querySelector('#yearly').style = 'font-weight:800; color: #004E64'
+    document.querySelector('#monthly').style = 'font-weight:200; color: #45503B';
 }
 const toggleOff=()=>{
     on.style.display = 'none';
@@ -148,4 +150,6 @@ const toggleOff=()=>{
     document.querySelector('#month1').innerHTML='';
     document.querySelector('#month2').innerHTML='';
     document.querySelector('#month3').innerHTML='';
+    document.querySelector('#monthly').style = 'font-weight:800; color: #004E64';
+    document.querySelector('#yearly').style = 'font-weight:200; color: #45503B';
 }
