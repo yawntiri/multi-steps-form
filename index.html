@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="index.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <title>Frontend Mentor | Multi-step form</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
@@ -63,9 +64,9 @@
   <h1 class="text-3xl font-bold">Select your plan</h1>
   <p class="opacity-80 pb-3">You have the option of monthly or yearly billing.</p>
   
-<div id="subs" class="flex flex-col sm:flex-row gap-3 justify-around">
+<div id="subs" class="flex flex-col sm:flex-row gap-3 justify-around cursor-pointer">
 
- <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 ">
+ <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
   <img src="/dist/assets/images/icon-arcade.svg" alt="" class="sm:w-10 sm:pb-5">
   <div>
     <p class="text-[1.4em] font-bold" id="arcade">Arcade</p>
@@ -75,7 +76,7 @@
 </div>
 
 
- <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 ">
+ <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
   <img src="/dist/assets/images/icon-advanced.svg" alt="" class="sm:w-10 sm:pb-5">
   <div>
     <p class="text-[1.4em] font-bold" id="advanced">Advanced</p>
@@ -85,7 +86,7 @@
 </div>
 
 
- <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 ">
+ <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
   <img src="/dist/assets/images/icon-pro.svg" alt="" class="sm:w-10 sm:pb-5">
   <div>
     <p class="text-[1.4em] font-bold" id="pro">Pro</p>
@@ -97,12 +98,12 @@
 </div>
  
 <div  class="flex gap-3 w-[100%] items-center text-[1em] p-6 justify-around mt-4 rounded-sm h-10 bg-slate-100">
-  <p>Monthly</p>
+  <p id="monthly">Monthly</p>
   <div id="toggle">
     <span id="toggle_1" class="flex"><i class="fa-solid fa-toggle-off fa-2xl opacity-60"></i></span>
     <span id="toggle_2" class="hidden"><i class="fa-solid fa-toggle-on fa-2xl opacity-60"></i></span>
   </div>
-  <p>Yearly</p></div>
+  <p id="yearly">Yearly</p></div>
 
 </div>
 <!-- Step 2 end -->
