@@ -27,6 +27,6 @@ h1{
     font-family: ubuntu-bold;
 }
 #subs>div:hover{
-background-color: rgba(110, 169, 224, 0.63);
-border-color: blue;
+background-color: rgba(215, 236, 255, 0.63);
+border-color: rgb(22, 22, 112);
 }
