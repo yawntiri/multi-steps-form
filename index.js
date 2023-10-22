@@ -41,16 +41,18 @@ const nextConfig=()=>{
                 id.pop(); 
                 inputs.forEach(x=>x.style='border:1px solid red');
                 
-                if(emailRegex.test(input2.value) !== true && input3.value !== Number ){
-                    id.pop();         
-                }
-            }else if(input1.value !== '' && input2.value !=='' && input3.value !=='') {
+               
+            } else if(emailRegex.test(input2.value) !== true && input3.value !== Number ){
+                id.pop();         
+                input1.style='border:1px solid green';
+            }
+            else if(input1.value !== '' && input2.value !=='' && input3.value !=='') {
                 console.log('maybe')
                 step1.style.display = 'none'; 
                 step2.style.display = 'flex';
                 document.querySelector('#one').style.backgroundColor="transparent";
                 document.querySelector('#two').style.backgroundColor="rgb(147 197 253 / var(--tw-bg-opacity))";
-                inputs.forEach(x=>x.style='border: 1px transparent');
+                inputs.forEach(x=>x.style='border:1 solid green');
                 prev.disabled = false;
                 prev.style.opacity = '1';
             }

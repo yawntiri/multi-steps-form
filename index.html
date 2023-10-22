@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="output.css">
+  <!-- <link rel="stylesheet" href="output.css"> -->
   <link rel="stylesheet" href="index.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -112,11 +112,14 @@
 
 
 <!-- Step 3 start -->
-<div id="step_3" class="hidden flex-col">
-  <h1 class="text-3xl font-bold">Pick add-ons</h1>
-  <p class="opacity-80 pb-3">Add-ons help enhance your gaming experience.</p>
+<div id="step_3" class="hidden flex-col gap-y-6 h-[25em] justify-between">
+  <div id="texts">
+    <h1 class="text-3xl font-bold">Pick add-ons</h1>
+    <p class="opacity-80 pb-3">Add-ons help enhance your gaming experience.</p>
+  </div>
 
-  <div class="flex bg-blue-200 rounded-md justify-around border border-black items-center p-2">
+<div id="contents" class="flex flex-col  justify-around h-[80%]">
+  <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
     <input type="checkbox"  class="bg-green-400 scale-100">
     <div>
       <p class="text-[1.2em] font-bold" id="online">Online service</p>
@@ -124,18 +127,27 @@
     </div>
     <span><p class="text-blue-800" id="$1/mo">+$1/mo</p></span>
   </div>
-  
 
+  <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
+    <input type="checkbox"  class="bg-green-400 scale-100">
+    <div>
+      <p class="text-[1.2em] font-bold" id="storage"> Larger storage</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40">Extra 1TB of cloud save</p>
+    </div>
+    <span><p class="text-blue-800" id="$2/mo">+$2/mo</p></span>
+  </div>
 
-  Larger storage
-Extra 1TB of cloud save
-+$2/mo
-
-Customizable Profile
-Custom theme on your profile
-+$2/mo
-
-
+  <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
+    <input type="checkbox"  class="bg-green-400 scale-100">
+    <div>
+      <p class="text-[1.2em] font-bold" id="profile">Customizable Profile</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40">Custom theme on your profile</p>
+    </div>
+    <span><p class="text-blue-800" id="$3/mo">+$2/mo</p></span>
+  </div>
+ 
+</div>
+ 
 </div>
 <!-- Step 3 end -->
 
