@@ -134,24 +134,149 @@ if(toggleId==1){
 const toggleOn=()=>{
     off.style.display = 'none';
     on.style.display = 'flex';
-    document.querySelector('#mo1').innerHTML='$9/yr';
-    document.querySelector('#mo2').innerHTML='$120/yr';
-    document.querySelector('#mo3').innerHTML='$150/yr';
-    document.querySelector('#month1').innerHTML='2 months free';
-    document.querySelector('#month2').innerHTML='2 months free';
-    document.querySelector('#month3').innerHTML='2 months free';
+
+    // document.querySelector('#mo1').innerHTML='$9/yr';
+    // document.querySelector('#mo2').innerHTML='$120/yr';
+    // document.querySelector('#mo3').innerHTML='$150/yr';
     document.querySelector('#yearly').style = 'font-weight:800; color: #004E64'
     document.querySelector('#monthly').style = 'font-weight:200; color: #45503B';
+    document.querySelector('#subs').innerHTML = 
+    `
+        <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
+        <img src="/dist/assets/images/icon-arcade.svg" alt="" class="sm:w-10 sm:pb-5">
+        <div>
+        <p class="text-[1.4em] font-bold" id="arcade">Arcade</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo1">$90/yr</p>
+      <p id="month1" class="sm:text-[1.1em]">2 months free</p>
+    </div>
+  </div>
+  
+  
+   <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
+    <img src="/dist/assets/images/icon-advanced.svg" alt="" class="sm:w-10 sm:pb-5">
+    <div>
+      <p class="text-[1.4em] font-bold" id="advanced">Advanced</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo2">$120/yr</p>
+      <p id="month2" class="sm:text-[1.1em]">2 months free</p>
+    </div> 
+  </div>
+  
+  
+   <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
+    <img src="/dist/assets/images/icon-pro.svg" alt="" class="sm:w-10 sm:pb-5">
+    <div>
+      <p class="text-[1.4em] font-bold" id="pro">Pro</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo3">$150/yr</p>
+      <p id="month3" class="sm:text-[1.1em]">2 months free</p>
+    </div>
+  </div>
+
+    `
+
+    document.querySelector('#contents').innerHTML=
+
+    `
+    <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
+    <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
+    <div>
+      <p class="text-[1.2em] font-bold" id="online">Online service</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40">Access to multiplayer games</p>
+    </div>
+    <span><p class="text-blue-800" id="$1/mo">+$10/yr</p></span>
+  </div>
+
+  <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
+    <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
+    <div>
+      <p class="text-[1.2em] font-bold" id="storage"> Larger storage</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40">Extra 1TB of cloud save</p>
+    </div>
+    <span><p class="text-blue-800" id="$2/mo">+$20/yr</p></span>
+  </div>
+
+  <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
+    <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
+    <div>
+      <p class="text-[1.2em] font-bold" id="profile">Customizable Profile</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40">Custom theme on your profile</p>
+    </div>
+    <span><p class="text-blue-800" id="$3/mo">+$20/yr</p></span>
+  </div>
+    
+    `
+
 }
 const toggleOff=()=>{
     on.style.display = 'none';
     off.style.display = 'flex';
-    document.querySelector('#mo1').innerHTML='$9/mo';
-    document.querySelector('#mo2').innerHTML='$12/mo';
-    document.querySelector('#mo3').innerHTML='$15/mo';
-    document.querySelector('#month1').innerHTML='';
-    document.querySelector('#month2').innerHTML='';
-    document.querySelector('#month3').innerHTML='';
+
+    // document.querySelector('#mo1').innerHTML='$9/mo';
+    // document.querySelector('#mo2').innerHTML='$12/mo';
+    // document.querySelector('#mo3').innerHTML='$15/mo';
     document.querySelector('#monthly').style = 'font-weight:800; color: #004E64';
     document.querySelector('#yearly').style = 'font-weight:200; color: #45503B';
+   document.querySelector('#subs').innerHTML = 
+    `
+
+   <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
+    <img src="/dist/assets/images/icon-arcade.svg" alt="" class="sm:w-10 sm:pb-5">
+    <div>
+      <p class="text-[1.4em] font-bold" id="arcade">Arcade</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo1">$9/mo</p>
+    </div>
+  </div>
+  
+  
+   <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
+    <img src="/dist/assets/images/icon-advanced.svg" alt="" class="sm:w-10 sm:pb-5">
+    <div>
+      <p class="text-[1.4em] font-bold" id="advanced">Advanced</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo2">$12/mo</p>
+    </div> 
+  </div>
+  
+  
+   <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
+    <img src="/dist/assets/images/icon-pro.svg" alt="" class="sm:w-10 sm:pb-5">
+    <div>
+      <p class="text-[1.4em] font-bold" id="pro">Pro</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo3">$15/mo</p>
+    </div>
+  </div>
+   
+`
+
+document.querySelector('#contents').innerHTML=
+
+`
+<div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
+<input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
+<div>
+  <p class="text-[1.2em] font-bold" id="online">Online service</p>
+  <p class="text-[1em] sm:text-[1.1em] opacity-40">Access to multiplayer games</p>
+</div>
+<span><p class="text-blue-800" id="$1/mo">+$1/mo</p></span>
+</div>
+
+<div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
+<input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
+<div>
+  <p class="text-[1.2em] font-bold" id="storage"> Larger storage</p>
+  <p class="text-[1em] sm:text-[1.1em] opacity-40">Extra 1TB of cloud save</p>
+</div>
+<span><p class="text-blue-800" id="$2/mo">+$2/mo</p></span>
+</div>
+
+<div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
+<input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
+<div>
+  <p class="text-[1.2em] font-bold" id="profile">Customizable Profile</p>
+  <p class="text-[1em] sm:text-[1.1em] opacity-40">Custom theme on your profile</p>
+</div>
+<span><p class="text-blue-800" id="$3/mo">+$2/mo</p></span>
+</div>
+
+`
+
+
 }
