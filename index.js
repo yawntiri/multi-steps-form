@@ -134,6 +134,7 @@ if(toggleId==1){
 const toggleOn=()=>{
     off.style.display = 'none';
     on.style.display = 'flex';
+
     // document.querySelector('#mo1').innerHTML='$9/yr';
     // document.querySelector('#mo2').innerHTML='$120/yr';
     // document.querySelector('#mo3').innerHTML='$150/yr';
@@ -203,10 +204,12 @@ const toggleOn=()=>{
   </div>
     
     `
+
 }
 const toggleOff=()=>{
     on.style.display = 'none';
     off.style.display = 'flex';
+
     // document.querySelector('#mo1').innerHTML='$9/mo';
     // document.querySelector('#mo2').innerHTML='$12/mo';
     // document.querySelector('#mo3').innerHTML='$15/mo';
