@@ -276,3 +276,15 @@ document.querySelector('#contents').innerHTML=
 `
 
 }
+
+
+//selecting plans 
+let subs = document.querySelector("#subs");
+let  subChildren = subs.children.length;
+
+subs.addEventListener('click',function(){
+  subs.style.display = 'background-color: red;'
+})
+const planSelection = ()=>{
+
+}
