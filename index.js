@@ -1,3 +1,4 @@
+
 let next = document.querySelector('#btn_2');
 let prev = document.querySelector('#btn_1');
 let step1 = document.querySelector('#step_1');
@@ -122,7 +123,10 @@ let off = document.querySelector('#toggle_1');
 let toggle = document.querySelector('#toggle');
 let toggleId = 1;
 
+
+//toggle function 
 toggle.addEventListener('click',function(){
+
 if(toggleId==1){
     toggleOn();
     toggleId = 0;
@@ -130,18 +134,48 @@ if(toggleId==1){
     toggleOff();
     toggleId = 1;
 }
+//function to select and keep track of plans and subscriptions
+planObject.selectPlan();
 });
+let monthlySub =    
+`
+
+<div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
+<img src="/dist/assets/images/icon-arcade.svg" alt="" class="sm:w-10 sm:pb-5">
+<div>
+  <p class="text-[1.4em] font-bold" id="arcade">Arcade</p>
+  <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo1">$9/mo</p>
+</div>
+</div>
+
+
+<div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
+<img src="/dist/assets/images/icon-advanced.svg" alt="" class="sm:w-10 sm:pb-5">
+<div>
+  <p class="text-[1.4em] font-bold" id="advanced">Advanced</p>
+  <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo2">$12/mo</p>
+</div> 
+</div>
+
+
+<div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
+<img src="/dist/assets/images/icon-pro.svg" alt="" class="sm:w-10 sm:pb-5">
+<div>
+  <p class="text-[1.4em] font-bold" id="pro">Pro</p>
+  <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo3">$15/mo</p>
+</div>
+</div>
+
+`
+ document.querySelector('#subs').innerHTML = monthlySub;
 const toggleOn=()=>{
     off.style.display = 'none';
     on.style.display = 'flex';
-    // document.querySelector('#mo1').innerHTML='$9/yr';
-    // document.querySelector('#mo2').innerHTML='$120/yr';
-    // document.querySelector('#mo3').innerHTML='$150/yr';
     document.querySelector('#yearly').style = 'font-weight:800; color: #004E64'
     document.querySelector('#monthly').style = 'font-weight:200; color: #45503B';
     document.querySelector('#subs').innerHTML = 
     `
-        <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
+        <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
         <img src="/dist/assets/images/icon-arcade.svg" alt="" class="sm:w-10 sm:pb-5">
         <div>
         <p class="text-[1.4em] font-bold" id="arcade">Arcade</p>
@@ -151,7 +185,7 @@ const toggleOn=()=>{
   </div>
   
   
-   <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
+   <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
     <img src="/dist/assets/images/icon-advanced.svg" alt="" class="sm:w-10 sm:pb-5">
     <div>
       <p class="text-[1.4em] font-bold" id="advanced">Advanced</p>
@@ -161,7 +195,7 @@ const toggleOn=()=>{
   </div>
   
   
-   <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
+   <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
     <img src="/dist/assets/images/icon-pro.svg" alt="" class="sm:w-10 sm:pb-5">
     <div>
       <p class="text-[1.4em] font-bold" id="pro">Pro</p>
@@ -207,41 +241,9 @@ const toggleOn=()=>{
 const toggleOff=()=>{
     on.style.display = 'none';
     off.style.display = 'flex';
-    // document.querySelector('#mo1').innerHTML='$9/mo';
-    // document.querySelector('#mo2').innerHTML='$12/mo';
-    // document.querySelector('#mo3').innerHTML='$15/mo';
     document.querySelector('#monthly').style = 'font-weight:800; color: #004E64';
     document.querySelector('#yearly').style = 'font-weight:200; color: #45503B';
-   document.querySelector('#subs').innerHTML = 
-    `
-
-   <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
-    <img src="/dist/assets/images/icon-arcade.svg" alt="" class="sm:w-10 sm:pb-5">
-    <div>
-      <p class="text-[1.4em] font-bold" id="arcade">Arcade</p>
-      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo1">$9/mo</p>
-    </div>
-  </div>
-  
-  
-   <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
-    <img src="/dist/assets/images/icon-advanced.svg" alt="" class="sm:w-10 sm:pb-5">
-    <div>
-      <p class="text-[1.4em] font-bold" id="advanced">Advanced</p>
-      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo2">$12/mo</p>
-    </div> 
-  </div>
-  
-  
-   <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1">
-    <img src="/dist/assets/images/icon-pro.svg" alt="" class="sm:w-10 sm:pb-5">
-    <div>
-      <p class="text-[1.4em] font-bold" id="pro">Pro</p>
-      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo3">$15/mo</p>
-    </div>
-  </div>
-   
-`
+    document.querySelector('#subs').innerHTML = monthlySub;
 
 document.querySelector('#contents').innerHTML=
 
@@ -274,18 +276,32 @@ document.querySelector('#contents').innerHTML=
 </div>
 
 `
-
 }
 
 
 //selecting plans 
+let activeChild;
+let activeAddOns;
+const planObject ={
+  //method for subscription plan
+selectPlan(){
 let subChildren = document.querySelectorAll('.subChild');
-let track = [];
 subChildren.forEach((child)=>{
 child.addEventListener("click",()=>{
   subChildren.forEach((otherchild)=>{otherchild.classList.remove("selected")});
   child.classList.add("selected");
-  subChildren.forEach((activeChild)=>{activeChild.classList.contains("selected")?track.push(activeChild): false});
+  const tracking = [];
+  subChildren.forEach((active)=>{active.classList.contains("selected")?tracking.push(active): false});
+  activeChild = tracking.pop();
 });
 });
-track;
+},
+
+//method for add-ons plans
+addOns(){
+  
+}
+}
+planObject.selectPlan();
+activeChild;
+
