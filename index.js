@@ -279,12 +279,13 @@ document.querySelector('#contents').innerHTML=
 
 
 //selecting plans 
-let subs = document.querySelector("#subs");
-let  subChildren = subs.children.length;
-
-subs.addEventListener('click',function(){
-  subs.style.display = 'background-color: red;'
-})
-const planSelection = ()=>{
-
-}
+let subChildren = document.querySelectorAll('.subChild');
+let track = [];
+subChildren.forEach((child)=>{
+child.addEventListener("click",()=>{
+  subChildren.forEach((otherchild)=>{otherchild.classList.remove("selected")});
+  child.classList.add("selected");
+  subChildren.forEach((activeChild)=>{activeChild.classList.contains("selected")?track.push(activeChild): false});
+});
+});
+track;
