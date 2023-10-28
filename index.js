@@ -136,6 +136,8 @@ if(toggleId==1){
 }
 //function to select and keep track of plans and subscriptions
 planObject.selectPlan();
+// function to select multiple checkbox of add-ons and keep track of subscriptions
+planObject.addOns();
 });
 let monthlySub =    
 `
@@ -168,6 +170,37 @@ let monthlySub =
 
 `
  document.querySelector('#subs').innerHTML = monthlySub;
+
+ let monthlyAddOns = 
+ `
+ <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-gray-400 items-center p-3 check">
+    <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
+    <div>
+      <p class="text-[1.2em] font-bold" id="online">Online service</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40">Access to multiplayer games</p>
+    </div>
+    <span><p class="text-blue-800" id="$1/mo">+$1/mo</p></span>
+  </div>
+
+  <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-gray-400 items-center p-3 check">
+    <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
+    <div>
+      <p class="text-[1.2em] font-bold" id="storage"> Larger storage</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40">Extra 1TB of cloud save</p>
+    </div>
+    <span><p class="text-blue-800" id="$2/mo">+$2/mo</p></span>
+  </div>
+
+  <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-gray-400 items-center p-3 check">
+    <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
+    <div>
+      <p class="text-[1.2em] font-bold" id="profile">Customizable Profile</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40">Custom theme on your profile</p>
+    </div>
+    <span><p class="text-blue-800" id="$3/mo">+$2/mo</p></span>
+  </div>
+ `
+ document.querySelector('#contents').innerHTML= monthlyAddOns;
 const toggleOn=()=>{
     off.style.display = 'none';
     on.style.display = 'flex';
@@ -209,7 +242,7 @@ const toggleOn=()=>{
     document.querySelector('#contents').innerHTML=
 
     `
-    <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
+    <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3 check">
     <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
     <div>
       <p class="text-[1.2em] font-bold" id="online">Online service</p>
@@ -218,7 +251,7 @@ const toggleOn=()=>{
     <span><p class="text-blue-800" id="$1/mo">+$10/yr</p></span>
   </div>
 
-  <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
+  <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3 check">
     <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
     <div>
       <p class="text-[1.2em] font-bold" id="storage"> Larger storage</p>
@@ -227,7 +260,7 @@ const toggleOn=()=>{
     <span><p class="text-blue-800" id="$2/mo">+$20/yr</p></span>
   </div>
 
-  <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
+  <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3 check">
     <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
     <div>
       <p class="text-[1.2em] font-bold" id="profile">Customizable Profile</p>
@@ -245,37 +278,8 @@ const toggleOff=()=>{
     document.querySelector('#yearly').style = 'font-weight:200; color: #45503B';
     document.querySelector('#subs').innerHTML = monthlySub;
 
-document.querySelector('#contents').innerHTML=
+document.querySelector('#contents').innerHTML= monthlyAddOns;
 
-`
-<div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
-<input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
-<div>
-  <p class="text-[1.2em] font-bold" id="online">Online service</p>
-  <p class="text-[1em] sm:text-[1.1em] opacity-40">Access to multiplayer games</p>
-</div>
-<span><p class="text-blue-800" id="$1/mo">+$1/mo</p></span>
-</div>
-
-<div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
-<input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
-<div>
-  <p class="text-[1.2em] font-bold" id="storage"> Larger storage</p>
-  <p class="text-[1em] sm:text-[1.1em] opacity-40">Extra 1TB of cloud save</p>
-</div>
-<span><p class="text-blue-800" id="$2/mo">+$2/mo</p></span>
-</div>
-
-<div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3">
-<input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
-<div>
-  <p class="text-[1.2em] font-bold" id="profile">Customizable Profile</p>
-  <p class="text-[1em] sm:text-[1.1em] opacity-40">Custom theme on your profile</p>
-</div>
-<span><p class="text-blue-800" id="$3/mo">+$2/mo</p></span>
-</div>
-
-`
 }
 
 
@@ -309,6 +313,8 @@ addOns(){
             activeAddOns.push(child);
         }else if(checker.checked==true){
           checker.checked=false;
+
+          activeAddOns.splice(activeAddOns.indexOf(child), 1);   
         }
       })
   })
@@ -318,3 +324,6 @@ planObject.selectPlan();
 planObject.addOns();
 activeChild;
 activeAddOns;
+
+let counter = [activeChild];
+counter;
