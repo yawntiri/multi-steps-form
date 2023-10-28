@@ -281,7 +281,7 @@ document.querySelector('#contents').innerHTML=
 
 //selecting plans 
 let activeChild;
-let activeAddOns;
+let activeAddOns = [];
 const planObject ={
   //method for subscription plan
 selectPlan(){
@@ -299,9 +299,22 @@ child.addEventListener("click",()=>{
 
 //method for add-ons plans
 addOns(){
-  
+  let subChildren = document.querySelectorAll('.check');
+  subChildren.forEach((child)=>{
+    let checker =  child.querySelector('input[type="checkbox"]');
+      checker.checked  = false;
+      child.addEventListener('click', ()=>{
+        if(checker.checked==false){
+            checker.checked = true;
+            activeAddOns.push(child);
+        }else if(checker.checked==true){
+          checker.checked=false;
+        }
+      })
+  })
 }
 }
 planObject.selectPlan();
+planObject.addOns();
 activeChild;
-
+activeAddOns;
