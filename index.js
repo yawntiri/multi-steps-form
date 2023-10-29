@@ -120,10 +120,18 @@ let off = document.querySelector('#toggle_1');
 let toggle = document.querySelector('#toggle');
 let toggleId = 1;
 
+let toggleOnOff = (on,off)=>{
+  if(toggleId==1){
+    toggleId = 0;
+ return    on;
+}else if(toggleId==0){
+  toggleId = 1;
+    return off;
+}
+}
 
 //toggle function 
 toggle.addEventListener('click',function(){
-
 if(toggleId==1){
     toggleOn();
     toggleId = 0;
@@ -284,19 +292,42 @@ document.querySelector('#contents').innerHTML= monthlyAddOns;
 
 
 //selecting plans 
-let activeChild = [];
+
 let activeAddOns = [];
 const planObject ={
   //method for subscription plan
-selectPlan(){
-let subChildren = document.querySelectorAll('.subChild');
-subChildren.forEach((child)=>{
-child.addEventListener("click",()=>{
-  subChildren.forEach((otherchild)=>{otherchild.classList.remove("selected")});
-  child.classList.add("selected");
+  selectPlan(){
+    let subChildren = document.querySelectorAll('.subChild');
+    subChildren.forEach((child)=>{
+      child.addEventListener("click",()=>{
+        subChildren.forEach((otherchild)=>{otherchild.classList.remove("selected")});
+        child.classList.add("selected");
+  let activeChild;
   const tracking = [];
   subChildren.forEach((active)=>{active.classList.contains("selected")?tracking.push(active): false});
   activeChild = tracking.pop();
+  let fin = '';
+  fin = activeChild.innerText;
+  let clean = fin.split(' ').map(x=>x.replace(/\n/g,' ')).join('');
+  let str = clean.split(' ');
+  let planChild = str[0];
+  let moChild = str[2];
+  
+  let dynamic = 
+  `
+  <div class="flex justify-between items-center border-b-2 border-gray-300 gap-4 pb-3">
+  <div>
+    <p class="text-[1.2em] font-bold" id="catalog">${planChild} (${ toggleOnOff('Monthly','Yearly')})</p>
+    <p class="text-[1em] sm:text-[1.1em] opacity-40 underline change">change</p>
+  </div> 
+  <p id="sub-0" class=" font-extrabold text-lg">${moChild}</p>
+  </div>
+  <div class="addSelected">
+  <span class="flex justify-between"><p id="service-1">Online Service</p><p id="sub-1" class=" font-medium">mon</p></span>
+  <span class="flex justify-between"><p id="service-2">Larger Storage</p><p id="sub-2" class=" font-medium">mon</p></span>
+  </div>
+  `
+  document.querySelector('#dynamic').innerHTML = dynamic;
 });
 });
 },
@@ -323,37 +354,11 @@ addOns(){
 }
 planObject.selectPlan();
 planObject.addOns();
-
-let parentElement = document.createElement('div');
-activeChild.forEach(element=>parentElement.appendChild(element))
-console.log(parentElement);
-  let planChild = parentElement.querySelector('#plan');
-  let moChild = parentElement.querySelector('#mo');
-
-
 activeAddOns;
 
 
-let dynamic = 
-  `
-  <div class="flex justify-between items-center border-b-2 border-gray-300 gap-4 pb-3">
-  <div>
-    <p class="text-[1.2em] font-bold" id="catalog">${planChild.textContent} (${moChild.textContent})</p>
-    <p class="text-[1em] sm:text-[1.1em] opacity-40 underline change">change</p>
-  </div> 
-  <p id="sub-0" class=" font-extrabold text-lg">${activeChild}</p>
-  </div>
-  <div class="addSelected">
-  <span class="flex justify-between"><p id="service-1">Online Service</p><p id="sub-1" class=" font-medium">mon</p></span>
-  <span class="flex justify-between"><p id="service-2">Larger Storage</p><p id="sub-2" class=" font-medium">mon</p></span>
-  </div>
-  `
+
   let total = 
   `
-  <p> Total (per month/year)</p> <p class="text-blue-700 font-bold">+12/mo</p>
-  `
-
-  document.querySelector('#dynamic').innerHTML = dynamic;
+  <p> Total (per month/year)</p> <p class="text-blue-700 font-bold">+12/mo</p>`
   document.querySelector('.total').innerHTML = total;
-
- 
