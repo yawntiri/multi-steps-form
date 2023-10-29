@@ -14,7 +14,6 @@ next.addEventListener('click', function(e) {
     e.preventDefault();
     count++;
     id.push(count);
-    console.log(id);
     return nextConfig();
 });
 
@@ -23,7 +22,6 @@ next.addEventListener('click', function(e) {
 prev.addEventListener('click', function(e) {
     count--;
     id.shift(count )
-    console.log(id);
     return prevConfig();
 });
 //next and previous button functionality 
@@ -48,7 +46,6 @@ const nextConfig=()=>{
                 input1.style='border:1px solid green';
             }
             else if(input1.value !== '' && input2.value !=='' && input3.value !=='') {
-                console.log('maybe')
                 step1.style.display = 'none'; 
                 step2.style.display = 'flex';
                 document.querySelector('#one').style.backgroundColor="transparent";
@@ -141,12 +138,11 @@ planObject.addOns();
 });
 let monthlySub =    
 `
-
 <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
 <img src="/dist/assets/images/icon-arcade.svg" alt="" class="sm:w-10 sm:pb-5">
 <div>
-  <p class="text-[1.4em] font-bold" id="arcade">Arcade</p>
-  <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo1">$9/mo</p>
+  <p class="text-[1.4em] font-bold" id="plan">Arcade</p>
+  <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo">$9/mo</p>
 </div>
 </div>
 
@@ -154,8 +150,8 @@ let monthlySub =
 <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
 <img src="/dist/assets/images/icon-advanced.svg" alt="" class="sm:w-10 sm:pb-5">
 <div>
-  <p class="text-[1.4em] font-bold" id="advanced">Advanced</p>
-  <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo2">$12/mo</p>
+  <p class="text-[1.4em] font-bold" id="plan">Advanced</p>
+  <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo">$12/mo</p>
 </div> 
 </div>
 
@@ -163,12 +159,13 @@ let monthlySub =
 <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
 <img src="/dist/assets/images/icon-pro.svg" alt="" class="sm:w-10 sm:pb-5">
 <div>
-  <p class="text-[1.4em] font-bold" id="pro">Pro</p>
-  <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo3">$15/mo</p>
+  <p class="text-[1.4em] font-bold" id="plan">Pro</p>
+  <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo">$15/mo</p>
 </div>
 </div>
 
 `
+
  document.querySelector('#subs').innerHTML = monthlySub;
 
  let monthlyAddOns = 
@@ -211,8 +208,8 @@ const toggleOn=()=>{
         <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
         <img src="/dist/assets/images/icon-arcade.svg" alt="" class="sm:w-10 sm:pb-5">
         <div>
-        <p class="text-[1.4em] font-bold" id="arcade">Arcade</p>
-      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo1">$90/yr</p>
+        <p class="text-[1.4em] font-bold" id="plan">Arcade</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo">$90/yr</p>
       <p id="month1" class="sm:text-[1.1em]">2 months free</p>
     </div>
   </div>
@@ -221,8 +218,8 @@ const toggleOn=()=>{
    <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
     <img src="/dist/assets/images/icon-advanced.svg" alt="" class="sm:w-10 sm:pb-5">
     <div>
-      <p class="text-[1.4em] font-bold" id="advanced">Advanced</p>
-      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo2">$120/yr</p>
+      <p class="text-[1.4em] font-bold" id="plan">Advanced</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo">$120/yr</p>
       <p id="month2" class="sm:text-[1.1em]">2 months free</p>
     </div> 
   </div>
@@ -231,8 +228,8 @@ const toggleOn=()=>{
    <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
     <img src="/dist/assets/images/icon-pro.svg" alt="" class="sm:w-10 sm:pb-5">
     <div>
-      <p class="text-[1.4em] font-bold" id="pro">Pro</p>
-      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo3">$150/yr</p>
+      <p class="text-[1.4em] font-bold" id="plan">Pro</p>
+      <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo">$150/yr</p>
       <p id="month3" class="sm:text-[1.1em]">2 months free</p>
     </div>
   </div>
@@ -284,7 +281,7 @@ document.querySelector('#contents').innerHTML= monthlyAddOns;
 
 
 //selecting plans 
-let activeChild;
+let activeChild = [];
 let activeAddOns = [];
 const planObject ={
   //method for subscription plan
@@ -311,10 +308,11 @@ addOns(){
         if(checker.checked==false){
             checker.checked = true;
             activeAddOns.push(child);
+            //element would be created here
         }else if(checker.checked==true){
           checker.checked=false;
-
           activeAddOns.splice(activeAddOns.indexOf(child), 1);   
+          //element would be removed here
         }
       })
   })
@@ -322,8 +320,37 @@ addOns(){
 }
 planObject.selectPlan();
 planObject.addOns();
-activeChild;
+
+let parentElement = document.createElement('div');
+activeChild.forEach(element=>parentElement.appendChild(element))
+console.log(parentElement);
+  let planChild = parentElement.querySelector('#plan');
+  let moChild = parentElement.querySelector('#mo');
+
+
 activeAddOns;
 
-let counter = [activeChild];
-counter;
+
+let dynamic = 
+  `
+  <div class="flex justify-between items-center border-b-2 border-gray-300 gap-4 pb-3">
+  <div>
+    <p class="text-[1.2em] font-bold" id="catalog">${planChild.textContent} (${moChild.textContent})</p>
+    <p class="text-[1em] sm:text-[1.1em] opacity-40 underline change">change</p>
+  </div> 
+  <p id="sub-0" class=" font-extrabold text-lg">${activeChild}</p>
+  </div>
+  <div class="addSelected">
+  <span class="flex justify-between"><p id="service-1">Online Service</p><p id="sub-1" class=" font-medium">mon</p></span>
+  <span class="flex justify-between"><p id="service-2">Larger Storage</p><p id="sub-2" class=" font-medium">mon</p></span>
+  </div>
+  `
+  let total = 
+  `
+  <p> Total (per month/year)</p> <p class="text-blue-700 font-bold">+12/mo</p>
+  `
+
+  document.querySelector('#dynamic').innerHTML = dynamic;
+  document.querySelector('.total').innerHTML = total;
+
+ 
