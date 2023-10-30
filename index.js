@@ -101,7 +101,6 @@ const prevConfig=()=>{
             step4.style.display = 'none'; 
             document.querySelector('#three').style.backgroundColor="rgb(147 197 253 / var(--tw-bg-opacity))";;
             document.querySelector('#four').style.backgroundColor="transparent";
-
         break;   
         case 3:
             step4.style.display = 'flex'; 
@@ -181,7 +180,7 @@ let monthlySub =
  <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-gray-400 items-center p-3 check">
     <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
     <div>
-      <p class="text-[1.2em] font-bold" id="online">Online service</p>
+      <p class="text-[1.2em] font-bold" id="service">Online service</p>
       <p class="text-[1em] sm:text-[1.1em] opacity-40">Access to multiplayer games</p>
     </div>
     <span><p class="text-blue-800" id="$1/mo">+$1/mo</p></span>
@@ -190,7 +189,7 @@ let monthlySub =
   <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-gray-400 items-center p-3 check">
     <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
     <div>
-      <p class="text-[1.2em] font-bold" id="storage"> Larger storage</p>
+      <p class="text-[1.2em] font-bold" id="service"> Larger storage</p>
       <p class="text-[1em] sm:text-[1.1em] opacity-40">Extra 1TB of cloud save</p>
     </div>
     <span><p class="text-blue-800" id="$2/mo">+$2/mo</p></span>
@@ -199,7 +198,7 @@ let monthlySub =
   <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-gray-400 items-center p-3 check">
     <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
     <div>
-      <p class="text-[1.2em] font-bold" id="profile">Customizable Profile</p>
+      <p class="text-[1.2em] font-bold" id="service">Customizable Profile</p>
       <p class="text-[1em] sm:text-[1.1em] opacity-40">Custom theme on your profile</p>
     </div>
     <span><p class="text-blue-800" id="$3/mo">+$2/mo</p></span>
@@ -251,7 +250,7 @@ const toggleOn=()=>{
     <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3 check">
     <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
     <div>
-      <p class="text-[1.2em] font-bold" id="online">Online service</p>
+      <p class="text-[1.2em] font-bold" id="service">Online service</p>
       <p class="text-[1em] sm:text-[1.1em] opacity-40">Access to multiplayer games</p>
     </div>
     <span><p class="text-blue-800" id="$1/mo">+$10/yr</p></span>
@@ -260,7 +259,7 @@ const toggleOn=()=>{
   <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3 check">
     <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
     <div>
-      <p class="text-[1.2em] font-bold" id="storage"> Larger storage</p>
+      <p class="text-[1.2em] font-bold" id="service"> Larger storage</p>
       <p class="text-[1em] sm:text-[1.1em] opacity-40">Extra 1TB of cloud save</p>
     </div>
     <span><p class="text-blue-800" id="$2/mo">+$20/yr</p></span>
@@ -269,7 +268,7 @@ const toggleOn=()=>{
   <div class="flex hover:bg-blue-50 cursor-pointer rounded-md justify-between border border-black items-center p-3 check">
     <input type="checkbox"  class="bg-green-400 h-5 w-5 cursor-pointer">
     <div>
-      <p class="text-[1.2em] font-bold" id="profile">Customizable Profile</p>
+      <p class="text-[1.2em] font-bold" id="service">Customizable Profile</p>
       <p class="text-[1em] sm:text-[1.1em] opacity-40">Custom theme on your profile</p>
     </div>
     <span><p class="text-blue-800" id="$3/mo">+$20/yr</p></span>
@@ -315,19 +314,13 @@ const planObject ={
   
   let dynamic = 
   `
-  <div class="flex justify-between items-center border-b-2 border-gray-300 gap-4 pb-3">
   <div>
     <p class="text-[1.2em] font-bold" id="catalog">${planChild} (${ toggleOnOff('Monthly','Yearly')})</p>
     <p class="text-[1em] sm:text-[1.1em] opacity-40 underline change">change</p>
   </div> 
   <p id="sub-0" class=" font-extrabold text-lg">${moChild}</p>
-  </div>
-  <div class="addSelected">
-  <span class="flex justify-between"><p id="service-1">Online Service</p><p id="sub-1" class=" font-medium">mon</p></span>
-  <span class="flex justify-between"><p id="service-2">Larger Storage</p><p id="sub-2" class=" font-medium">mon</p></span>
-  </div>
   `
-  document.querySelector('#dynamic').innerHTML = dynamic;
+  document.querySelector('.dynamic1').innerHTML = dynamic;
 });
 });
 },
@@ -343,6 +336,13 @@ addOns(){
             checker.checked = true;
             activeAddOns.push(child);
             //element would be created here
+            let createAddOns = document.createElement('span');
+            console.log(activeAddOns)
+            createAddOns.innerHTML  = 
+            `
+            <span class="flex justify-between"><p id="service-1">Online Service</p><p id="sub-1" class=" font-medium">mon</p></span>
+            `
+            document.querySelector('.addSelected').appendChild( createAddOns);
         }else if(checker.checked==true){
           checker.checked=false;
           activeAddOns.splice(activeAddOns.indexOf(child), 1);   
