@@ -331,16 +331,22 @@ addOns(){
   subChildren.forEach((child)=>{
     let checker =  child.querySelector('input[type="checkbox"]');
       checker.checked  = false;
+      let fin = '';
       child.addEventListener('click', ()=>{
         if(checker.checked==false){
             checker.checked = true;
             activeAddOns.push(child);
+            fin = activeAddOns[0].textContent;
+            let clean = fin.split('').map(x=>x.replace(/\n/g,' ')).join('').split(' ').filter(x=>x!='');
+            let service = `${clean[0]} ${clean[1]}`;
+            let money = clean.pop();
+            console.log(money)
             //element would be created here
             let createAddOns = document.createElement('span');
             console.log(activeAddOns)
             createAddOns.innerHTML  = 
             `
-            <span class="flex justify-between"><p id="service-1">Online Service</p><p id="sub-1" class=" font-medium">mon</p></span>
+            <span class="flex justify-between"><p id="service-1">${service}</p><p id="sub-1" class=" font-medium">${money}</p></span>
             `
             document.querySelector('.addSelected').appendChild( createAddOns);
         }else if(checker.checked==true){
