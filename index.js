@@ -208,6 +208,7 @@ let monthlySub =
 const toggleOn=()=>{
     off.style.display = 'none';
     on.style.display = 'flex';
+
     document.querySelector('#yearly').style = 'font-weight:800; color: #004E64'
     document.querySelector('#monthly').style = 'font-weight:200; color: #45503B';
     document.querySelector('#subs').innerHTML = 
@@ -274,10 +275,12 @@ const toggleOn=()=>{
   </div>
     
     `
+
 }
 const toggleOff=()=>{
     on.style.display = 'none';
     off.style.display = 'flex';
+
     document.querySelector('#monthly').style = 'font-weight:800; color: #004E64';
     document.querySelector('#yearly').style = 'font-weight:200; color: #45503B';
     document.querySelector('#subs').innerHTML = monthlySub;
