@@ -368,17 +368,19 @@ addOns(){
   })
 }
 }
-const calculateTotal = (talMon)=>{
-  let first = talMon[0];
-  let last = talMon[talMon.length-1];
-  let sum = [first[first.length-1],last];
-let filtered = sum.toString().match(/\b[-+]?\d+(\.\d+)?\b/g);
-console.log(filtered)
-}
 planObject.selectPlan();
 planObject.addOns();
 activeAddOns;
 
+const calculateTotal = (talMon)=>{
+  let first = talMon[0];
+  let last = talMon.filter(item => typeof item === "string");;
+  let sum = [first[first.length-1],last];
+let filtered = sum.toString().match(/\b[-+]?\d+(\.\d+)?\b/g);
+// Convert the matched strings to numbers
+let filteredNumbers = filtered.map(str => parseFloat(str));
+console.log(filteredNumbers.reduce((a,b)=>{return a+b}).toString());
+}
 
 
   let total = 
