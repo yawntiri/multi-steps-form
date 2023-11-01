@@ -293,6 +293,8 @@ document.querySelector('#contents').innerHTML= monthlyAddOns;
 //selecting plans 
 
 let activeAddOns = [];
+let totalMoney = [];
+let arr = [];
 const planObject ={
   //method for subscription plan
   selectPlan(){
@@ -307,11 +309,10 @@ const planObject ={
   activeChild = tracking.pop();
   let fin = '';
   fin = activeChild.innerText;
-  let clean = fin.split(' ').map(x=>x.replace(/\n/g,' ')).join('');
-  let str = clean.split(' ');
-  let planChild = str[0];
-  let moChild = str[2];
-  
+  let clean = fin.split(' ').map(x=>x.replace(/\n/g,' ')).join('').split(' ');
+  let planChild = clean[0];
+  let moChild = clean[2];
+  arr.push(moChild);
   let dynamic = 
   `
   <div>
@@ -321,6 +322,8 @@ const planObject ={
   <p id="sub-0" class=" font-extrabold text-lg">${moChild}</p>
   `
   document.querySelector('.dynamic1').innerHTML = dynamic;
+
+  totalMoney.push(arr);
 });
 });
 },
@@ -344,6 +347,7 @@ addOns(){
             clean = fin.split('').map(x=>x.replace(/\n/g,' ')).join('').split(' ').filter(x=>x!='');
             service = `${clean[0]} ${clean[1]}`;
             money = clean.pop();
+            totalMoney.push(money);
             console.log(money)
             //element would be created here
             createAddOns = document.createElement('span');
@@ -353,6 +357,7 @@ addOns(){
             <span class="flex justify-between"><p id="service-1">${service}</p><p id="sub-1" class=" font-medium">${money}</p></span>
             `
             document.querySelector('.addSelected').appendChild( createAddOns);
+            console.log(totalMoney)
           }else if(checker.checked==true){
             checker.checked=false;
             activeAddOns.splice(activeAddOns.indexOf(child), 1);   
@@ -363,6 +368,13 @@ addOns(){
   })
 }
 }
+const calculateTotal = (talMon)=>{
+  let first = talMon[0];
+  let last = talMon[talMon.length-1];
+  let sum = [first[first.length-1],last];
+let filtered = sum.toString().match(/\b[-+]?\d+(\.\d+)?\b/g);
+console.log(filtered)
+}
 planObject.selectPlan();
 planObject.addOns();
 activeAddOns;
@@ -371,5 +383,5 @@ activeAddOns;
 
   let total = 
   `
-  <p> Total (per month/year)</p> <p class="text-blue-700 font-bold">+12/mo</p>`
+  <p> Total (per month/year)</p> <p class="text-blue-700 font-bold">${calculateTotal(totalMoney)}/mo</p>`
   document.querySelector('.total').innerHTML = total;
