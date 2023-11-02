@@ -313,6 +313,7 @@ const planObject ={
   let planChild = clean[0];
   let moChild = clean[2];
   arr.push(moChild);
+  totalMoney.push(arr);
   let dynamic = 
   `
   <div>
@@ -323,7 +324,6 @@ const planObject ={
   `
   document.querySelector('.dynamic1').innerHTML = dynamic;
 
-  totalMoney.push(arr);
 });
 });
 },
@@ -362,8 +362,11 @@ addOns(){
             checker.checked=false;
             activeAddOns.splice(activeAddOns.indexOf(child), 1);   
             document.querySelector('.addSelected').removeChild( createAddOns);
+            totalMoney.pop(money);
           //element would be removed here
         }
+        let total = `<p> Total (per month/year)</p> <p class="text-blue-700 font-bold text-lg">$ ${calculateTotal(totalMoney)}/mo</p>`;
+        document.querySelector('.total').innerHTML = total; 
       })
   })
 }
@@ -379,11 +382,7 @@ const calculateTotal = (talMon)=>{
 let filtered = sum.toString().match(/\b[-+]?\d+(\.\d+)?\b/g);
 // Convert the matched strings to numbers
 let filteredNumbers = filtered.map(str => parseFloat(str));
-console.log(filteredNumbers.reduce((a,b)=>{return a+b}).toString());
+return filteredNumbers.reduce((a,b)=>{return a+b}).toString();
 }
 
 
-  let total = 
-  `
-  <p> Total (per month/year)</p> <p class="text-blue-700 font-bold">${calculateTotal(totalMoney)}/mo</p>`
-  document.querySelector('.total').innerHTML = total;
