@@ -26,7 +26,6 @@ prev.addEventListener('click', function(e) {
 });
 //next and previous button functionality 
 const nextConfig=()=>{
-    // let nextInstance = document.querySelector('#btn2');
 
     switch(id.length){
         case 1:
@@ -111,6 +110,8 @@ const prevConfig=()=>{
         break;   
     }
 }
+
+
 
 //toggle button functionality 
 //initialize button
@@ -318,12 +319,19 @@ const planObject ={
   `
   <div>
     <p class="text-[1.2em] font-bold" id="catalog">${planChild} (${ toggleOnOff('Monthly','Yearly')})</p>
-    <p class="text-[1em] sm:text-[1.1em] opacity-40 underline change">change</p>
+    <p class="text-[1em] sm:text-[1.1em] opacity-40 underline cursor-pointer change">change</p>
   </div> 
   <p id="sub-0" class=" font-extrabold text-lg">${moChild}</p>
   `
   document.querySelector('.dynamic1').innerHTML = dynamic;
-
+  document.querySelector('.change').addEventListener('click', ()=>{
+    id.splice(1);
+    console.log(id);
+    step4.style.display = 'none';
+    step2.style.display = 'flex';
+    document.querySelector('#four').style.backgroundColor="transparent";
+    document.querySelector('#two').style.backgroundColor="rgb(147 197 253 / var(--tw-bg-opacity))";
+  })
 });
 });
 },
