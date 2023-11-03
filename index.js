@@ -373,7 +373,7 @@ addOns(){
             totalMoney.pop(money);
           //element would be removed here
         }
-        let total = `<p> Total (per month/year)</p> <p class="text-blue-700 font-bold text-lg">$ ${calculateTotal(totalMoney)}/mo</p>`;
+        let total = `<p> Total (per month/year)</p> <p class="text-blue-700 font-bold text-lg">$ ${calculateTotal(totalMoney)}/${ toggleOnOff('mo','yr')}</p>`;
         document.querySelector('.total').innerHTML = total; 
       })
   })
