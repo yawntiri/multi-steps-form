@@ -1,4 +1,4 @@
-
+// Selecting DOM elements
 let next = document.querySelector('#btn_2');
 let prev = document.querySelector('#btn_1');
 let step1 = document.querySelector('#step_1');
@@ -7,9 +7,10 @@ let step3 = document.querySelector('#step_3');
 let step4 = document.querySelector('#step_4');
 let step5 = document.querySelector('#step_5');
 
+// Initialize variables
 let id = [];
 let count = 0;
-//next button event listener
+// Event listener for the "Next" button
 next.addEventListener('click', function(e) {
     e.preventDefault();
     count++;
@@ -18,17 +19,18 @@ next.addEventListener('click', function(e) {
 });
 
 
-//prev button event listener
+// Event listener for the "Previous" button
 prev.addEventListener('click', function(e) {
     count--;
     id.shift(count )
     return prevConfig();
 });
-//next and previous button functionality 
-const nextConfig=()=>{
 
+// Function to handle next button functionality
+const nextConfig=()=>{
     switch(id.length){
-        case 1:
+      case 1:
+          // Step 1: Validate input fields and move to step 2
             let input1 = document.querySelector('#input1');
             let input2 = document.querySelector('#input2');
             let input3 = document.querySelector('#input3');
@@ -53,22 +55,23 @@ const nextConfig=()=>{
                 prev.disabled = false;
                 prev.style.opacity = '1';
             }
-
-      
         break;
         case 2:
+          // Step 2: Move to step 3
               step2.style.display = 'none'; 
               step3.style.display = 'flex';
               document.querySelector('#two').style.backgroundColor="transparent";
               document.querySelector('#three').style.backgroundColor="rgb(147 197 253 / var(--tw-bg-opacity))";
         break;
         case 3:
+           // Step 3: Move to step 4
               step3.style.display = 'none'; 
               step4.style.display = 'flex';
               document.querySelector('#three').style.backgroundColor="transparent";
               document.querySelector('#four').style.backgroundColor="rgb(147 197 253 / var(--tw-bg-opacity))";
         break;
         case 4:
+            // Step 4: Move to step 5 and disable the "Next" button
               step4.style.display = 'none'; 
               step5.style.display = 'flex';
               document.querySelector('#four').style.backgroundColor="transparent";
@@ -76,12 +79,13 @@ const nextConfig=()=>{
               next.style.opacity = '0.4';
         break;
     }
-
-  
 }
+
+// Function to handle previous button functionality
 const prevConfig=()=>{
     switch(id.length){
         case 0:
+            // Step 0: Move back to step 1 and disable the "Previous" button
             step1.style.display = 'flex'; 
             step2.style.display = 'none'; 
             document.querySelector('#one').style.backgroundColor="rgb(147 197 253 / var(--tw-bg-opacity))";;
@@ -90,18 +94,21 @@ const prevConfig=()=>{
             prev.style.opacity = '0.4';
         break;   
         case 1:
+            // Step 1: Move back to step 2
             step2.style.display = 'flex'; 
             step3.style.display = 'none'; 
             document.querySelector('#two').style.backgroundColor="rgb(147 197 253 / var(--tw-bg-opacity))";;
             document.querySelector('#three').style.backgroundColor="transparent";
         break;   
         case 2:
+            // Step 2: Move back to step 3
             step3.style.display = 'flex'; 
             step4.style.display = 'none'; 
             document.querySelector('#three').style.backgroundColor="rgb(147 197 253 / var(--tw-bg-opacity))";;
             document.querySelector('#four').style.backgroundColor="transparent";
         break;   
         case 3:
+            // Step 3: Move back to step 4 and enable the "Next" button
             step4.style.display = 'flex'; 
             step5.style.display = 'none'; 
             document.querySelector('#four').style.backgroundColor="rgb(147 197 253 / var(--tw-bg-opacity))";
@@ -113,13 +120,13 @@ const prevConfig=()=>{
 
 
 
-//toggle button functionality 
-//initialize button
+// Initialize button elements and toggle functionality
 let on = document.querySelector('#toggle_2');
 let off = document.querySelector('#toggle_1');
 let toggle = document.querySelector('#toggle');
 let toggleId = 1;
 
+// Function to toggle between monthly and yearly subscription plans
 let toggleOnOff = (on,off)=>{
   if(toggleId==1){
     toggleId = 0;
@@ -130,7 +137,7 @@ let toggleOnOff = (on,off)=>{
 }
 }
 
-//toggle function 
+// Event listener for the toggle button
 toggle.addEventListener('click',function(){
 if(toggleId==1){
     toggleOn();
@@ -206,7 +213,10 @@ let monthlySub =
   </div>
  `
  document.querySelector('#contents').innerHTML= monthlyAddOns;
+
+// Function to toggle to yearly subscription plans
 const toggleOn=()=>{
+    // Update the HTML and change styles for yearly plans
     off.style.display = 'none';
     on.style.display = 'flex';
 
@@ -278,7 +288,9 @@ const toggleOn=()=>{
     `
 
 }
+// Function to toggle back to monthly subscription plans
 const toggleOff=()=>{
+       // Update the HTML and change styles for monthly plans
     on.style.display = 'none';
     off.style.display = 'flex';
 
@@ -296,20 +308,33 @@ document.querySelector('#contents').innerHTML= monthlyAddOns;
 let activeAddOns = [];
 let totalMoney = [];
 let arr = [];
+
+// Object for handling subscription plans and add-ons
 const planObject ={
-  //method for subscription plan
+  //method for selecting subscription plan
   selectPlan(){
+    //all subChild elements are assigned to the subChildren variable
     let subChildren = document.querySelectorAll('.subChild');
+    //all elements in variable are looped through and given a condition
     subChildren.forEach((child)=>{
+      //add event listeners to each child element
       child.addEventListener("click",()=>{
+        //on click remove class name selected in element that werent clicked
         subChildren.forEach((otherchild)=>{otherchild.classList.remove("selected")});
+        //add class name selected to clicked element
         child.classList.add("selected");
+        //variable to store last clicked element
   let activeChild;
+  //variable to store all clicked elements
   const tracking = [];
+  //push every element that includes the selected class name to tracking array
   subChildren.forEach((active)=>{active.classList.contains("selected")?tracking.push(active): false});
+  //assign last element in tracking array to active Child
   activeChild = tracking.pop();
   let fin = '';
+  //assign fin to the innerText property of activeChild
   fin = activeChild.innerText;
+  //trim fin to get rid of non existing data
   let clean = fin.split(' ').map(x=>x.replace(/\n/g,' ')).join('').split(' ');
   let planChild = clean[0];
   let moChild = clean[2];
@@ -336,9 +361,10 @@ const planObject ={
 });
 },
 
-//method for add-ons plans
+//method for selecting add-ons plans
 addOns(){
   let subChildren = document.querySelectorAll('.check');
+  //for each element in subchildren check if checkbox is selected and extract selected elements data for calculation
   subChildren.forEach((child)=>{
     let checker =  child.querySelector('input[type="checkbox"]');
       checker.checked  = false;
@@ -379,17 +405,22 @@ addOns(){
   })
 }
 }
+// Initialize subscription plans and add-ons
 planObject.selectPlan();
 planObject.addOns();
 activeAddOns;
 
+
+// Function to calculate the total cost
 const calculateTotal = (talMon)=>{
-  let first = talMon[0];
+  let first = talMon[0];//access the first element in perenthesis array
+  //filters the rest of the string elements in the array 
   let last = talMon.filter(item => typeof item === "string");;
-  let sum = [first[first.length-1],last];
+  let sum = [first[first.length-1],last];//access the last element in first array and the last variable into an array
 let filtered = sum.toString().match(/\b[-+]?\d+(\.\d+)?\b/g);
 // Convert the matched strings to numbers
 let filteredNumbers = filtered.map(str => parseFloat(str));
+//returns the sum of the matched numbers
 return filteredNumbers.reduce((a,b)=>{return a+b}).toString();
 }
 
