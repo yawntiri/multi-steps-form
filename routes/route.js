@@ -1,6 +1,5 @@
-const route = require('express').Router();
-const nodemailer = require('../controller/nodemailer.js')
+const router = require('express').Router();
+const {mymailer} = require('../controller/appController.js');
 
-route.get('/mail/nodeMailer', nodemailer);
-
-module.exports = {route};
+router.get('/mail/myMailer', mymailer);
+module.exports = router;

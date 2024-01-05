@@ -1,11 +1,12 @@
 const express = require('express');
-const server = express();
-const routerApp = require('./routes/route.js');
+const app = express();
 const port = 3000;
+const appRoutes = require('./routes/route.js');
+// data should print in json format
+app.use(express.json());
 
-server.use(express.json())
-server.use('/api/', routerApp)
-
-server.listen(port, ()=>{
-console.log(`server listening on port ${port}`)
-});
+//middleware to handle api endpoint requests
+app.use('/api', appRoutes)
+app.listen(port, ()=>{
+  console.log(`server is live at ${port}`);
+})

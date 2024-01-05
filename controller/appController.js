@@ -1,4 +1,4 @@
-//import nodemailer
+// import nodemailer
 const nodemailer = require('nodemailer');
 
 //import env
@@ -30,4 +30,5 @@ transporter.sendMail(message).then((info)=>{
 
 }
 
-module.exports ={mymailer}
+
+module.exports ={mymailer};
