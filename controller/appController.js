@@ -31,4 +31,13 @@ transporter.sendMail(message).then((info)=>{
 }
 
 
-module.exports ={mymailer};
+
+
+const getapp = (req, res) => {
+res.sendFile(__dirname + '/public/index.html');
+}
+const getform = (req, res) => {
+    res.status(201).json(req.body);
+
+}
+module.exports ={mymailer, getapp, getform};

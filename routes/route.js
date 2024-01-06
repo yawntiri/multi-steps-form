@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const {mymailer} = require('../controller/appController.js');
+const {mymailer, getapp, getform} = require('../controller/appController.js');
 
-router.get('/mail/myMailer', mymailer);
+router.post('/myMailer', mymailer);
+router.post('/getApp', getapp);
+router.post('/getForm', getform);
 module.exports = router;

@@ -20,11 +20,22 @@ next.addEventListener('click', function(e) {
 
 
 // Event listener for the "Previous" button
+
 prev.addEventListener('click', function(e) {
-    count--;
-    id.shift(count )
-    return prevConfig();
+  count--;
+  id.shift(count )
+  return prevConfig();
 });
+
+//function to submit form
+const subForms = ()=>{
+  let form = document.getElementById('myforms');
+  form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+  //input validations here
+  })
+  console.log(`Submit`)
+}
 
 // Function to handle next button functionality
 const nextConfig=()=>{
@@ -72,6 +83,7 @@ const nextConfig=()=>{
         break;
         case 4:
             // Step 4: Move to step 5 and disable the "Next" button
+              subForms(); // sub forms
               step4.style.display = 'none'; 
               step5.style.display = 'flex';
               document.querySelector('#four').style.backgroundColor="transparent";
@@ -154,7 +166,7 @@ planObject.addOns();
 let monthlySub =    
 `
 <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
-<img src="/dist/assets/images/icon-arcade.svg" alt="" class="sm:w-10 sm:pb-5">
+<img src="assets/images/icon-arcade.svg" alt="" class="sm:w-10 sm:pb-5">
 <div>
   <p class="text-[1.4em] font-bold" id="plan">Arcade</p>
   <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo">$9/mo</p>
@@ -163,7 +175,7 @@ let monthlySub =
 
 
 <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
-<img src="/dist/assets/images/icon-advanced.svg" alt="" class="sm:w-10 sm:pb-5">
+<img src="assets/images/icon-advanced.svg" alt="" class="sm:w-10 sm:pb-5">
 <div>
   <p class="text-[1.4em] font-bold" id="plan">Advanced</p>
   <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo">$12/mo</p>
@@ -172,7 +184,7 @@ let monthlySub =
 
 
 <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
-<img src="/dist/assets/images/icon-pro.svg" alt="" class="sm:w-10 sm:pb-5">
+<img src="assets/images/icon-pro.svg" alt="" class="sm:w-10 sm:pb-5">
 <div>
   <p class="text-[1.4em] font-bold" id="plan">Pro</p>
   <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo">$15/mo</p>
@@ -225,7 +237,7 @@ const toggleOn=()=>{
     document.querySelector('#subs').innerHTML = 
     `
         <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
-        <img src="/dist/assets/images/icon-arcade.svg" alt="" class="sm:w-10 sm:pb-5">
+        <img src="assets/images/icon-arcade.svg" alt="" class="sm:w-10 sm:pb-5">
         <div>
         <p class="text-[1.4em] font-bold" id="plan">Arcade</p>
       <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo">$90/yr</p>
@@ -235,7 +247,7 @@ const toggleOn=()=>{
   
   
    <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
-    <img src="/dist/assets/images/icon-advanced.svg" alt="" class="sm:w-10 sm:pb-5">
+    <img src="assets/images/icon-advanced.svg" alt="" class="sm:w-10 sm:pb-5">
     <div>
       <p class="text-[1.4em] font-bold" id="plan">Advanced</p>
       <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo">$120/yr</p>
@@ -245,7 +257,7 @@ const toggleOn=()=>{
   
   
    <div class="flex border gap-2 p-2 rounded-md sm:flex-col sm:p-3 flex-1 subChild">
-    <img src="/dist/assets/images/icon-pro.svg" alt="" class="sm:w-10 sm:pb-5">
+    <img src="assets/images/icon-pro.svg" alt="" class="sm:w-10 sm:pb-5">
     <div>
       <p class="text-[1.4em] font-bold" id="plan">Pro</p>
       <p class="text-[1em] sm:text-[1.1em] opacity-40 font-bold" id="mo">$150/yr</p>
