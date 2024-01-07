@@ -1,6 +1,7 @@
 // Selecting DOM elements
 let next = document.querySelector('#btn_2');
 let prev = document.querySelector('#btn_1');
+let sub = document.querySelector('#btn_3');
 let step1 = document.querySelector('#step_1');
 let step2 = document.querySelector('#step_2');
 let step3 = document.querySelector('#step_3');
@@ -28,14 +29,19 @@ prev.addEventListener('click', function(e) {
 });
 
 //function to submit form
-const subForms = ()=>{
+const subForms = async()=>{
   let form = document.getElementById('myforms');
-  form.addEventListener('submit', (e)=>{
-    e.preventDefault();
+    
   //input validations here
-  })
-  console.log(`Submit`)
-}
+  const formData = new FormData(form);
+        console.log('login form data')
+        // Send the form data using AJAX
+       await fetch('/getForm', {
+            method: 'POST',
+            body: formData
+        })
+  
+  }
 
 // Function to handle next button functionality
 const nextConfig=()=>{
@@ -85,6 +91,7 @@ const nextConfig=()=>{
             // Step 4: Move to step 5 and disable the "Next" button
               subForms(); // sub forms
               step4.style.display = 'none'; 
+              step1.style.display = 'flex';
               step5.style.display = 'flex';
               document.querySelector('#four').style.backgroundColor="transparent";
               next.disabled = true;
