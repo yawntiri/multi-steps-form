@@ -29,19 +29,19 @@ prev.addEventListener('click', function(e) {
 });
 
 //function to submit form
-const subForms = async()=>{
-  let form = document.getElementById('myforms');
+// const subForms = async()=>{
+//   let form = document.getElementById('myforms');
     
-  //input validations here
-  const formData = new FormData(form);
-        console.log('login form data')
-        // Send the form data using AJAX
-       await fetch('/getForm', {
-            method: 'POST',
-            body: formData
-        })
+//   //input validations here
+//   const formData = new FormData(form);
+//         console.log('login form data')
+//         // Send the form data using AJAX
+//        await fetch('/getForm', {
+//             method: 'POST',
+//             body: formData
+//         })
   
-  }
+//   }
 
 // Function to handle next button functionality
 const nextConfig=()=>{
@@ -89,9 +89,8 @@ const nextConfig=()=>{
         break;
         case 4:
             // Step 4: Move to step 5 and disable the "Next" button
-              subForms(); // sub forms
+              // subForms(); // sub forms
               step4.style.display = 'none'; 
-              step1.style.display = 'flex';
               step5.style.display = 'flex';
               document.querySelector('#four').style.backgroundColor="transparent";
               next.disabled = true;

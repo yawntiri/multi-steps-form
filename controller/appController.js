@@ -35,12 +35,8 @@ transporter.sendMail(message).then((info)=>{
 
 
 const getapp = (req, res) => {
-    console.log(req)
-// res.sendFile(__dirname + '/public/index.html');
-res.sendFile(path.join(__dirname, '..','public', 'index.html'));
+    res.sendFile(path.join(__dirname, '..','public', 'index.html'));
+    console.log(req.body)
 }
-const getform = (req, res) => {
-    console.log(req.body);
 
-}
-module.exports ={mymailer, getapp, getform};
+module.exports ={mymailer, getapp};

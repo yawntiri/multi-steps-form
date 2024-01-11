@@ -30,7 +30,7 @@
 </div>
 <!-- Sidebar end -->
 
-<form method="post" enctype="multipart/form-data" action="/getForm" id="myforms" class="flex flex-col justify-between items-center z-40  w-auto sm:w-[70%] h-[90%] sm:h-[100%]">
+<form method="post" enctype="multipart/form-data" action="/getApp" id="myforms" class="flex flex-col justify-between items-center z-40  w-auto sm:w-[70%] h-[90%] sm:h-[100%]">
 
   <div  id="content" class="bg-white w-[90%] h-auto rounded-lg p-3 mt-20 sm:mt-14 text-[.9em]">
 
@@ -40,15 +40,15 @@
   <p class="opacity-80 pb-3">Please provide your name, email address, and phone number.</p>
   <div class="pb-3 flex flex-col">
     <label for="input1" class="text-[.9em]">Name</label>
-    <input type="text" id="input1" name="input1" placeholder="e.g. Stephen King" class="border p-2 rounded-sm h-10" required>
+    <input type="text" id="input1" name="name" placeholder="e.g. Stephen King" class="border p-2 rounded-sm h-10" required>
   </div>
   <div class="pb-3 flex flex-col">
     <label for="input2" class="text-[.9em]">Email Address</label>
-    <input type="text" id="input2" name="input2" placeholder="e.g. stephenking@lorem.com" class="border p-2 rounded-sm h-10" value=" stephenking@lorem.com" required>
+    <input type="text" id="input2" name="email" placeholder="e.g. stephenking@lorem.com" class="border p-2 rounded-sm h-10"  required>
   </div>
   <div class="pb-3 flex flex-col">
     <label for="input3" class="text-[.9em]">Phone Number</label>
-    <input type="number" id="input3" name="input3" placeholder="e.g. +1 234 567 890" class="border p-2 rounded-sm h-10" required>
+    <input type="number" id="input3" name="phone" placeholder="e.g. +1 234 567 890" class="border p-2 rounded-sm h-10" required>
   </div>
 
 </div>
@@ -142,7 +142,7 @@
 <div class="flex w-full h-[4em] justify-between items-center bg-white p-5">
   <button type="button" name="submit" id="btn_1" value="Go Back" class=" opacity-[0.4] font-medium" disabled>Go Back</button>
   <button type="button" id="btn_2" value="next step" class="rounded-md bg-blue-900 text-white p-2 font-medium">Next step</button>
-  <button type="submit" id="btn_3" value="submit" class="rounded-md bg-blue-900 text-white p-2 font-medium">submit</button>
+  <button type="submit" id  ="btn_3" value="submit" class="rounded-md bg-blue-900 text-white p-2 font-medium">submit</button>
 </div>
 
 
