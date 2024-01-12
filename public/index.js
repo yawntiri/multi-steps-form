@@ -28,20 +28,6 @@ prev.addEventListener('click', function(e) {
   return prevConfig();
 });
 
-//function to submit form
-// const subForms = async()=>{
-//   let form = document.getElementById('myforms');
-    
-//   //input validations here
-//   const formData = new FormData(form);
-//         console.log('login form data')
-//         // Send the form data using AJAX
-//        await fetch('/getForm', {
-//             method: 'POST',
-//             body: formData
-//         })
-  
-//   }
 
 // Function to handle next button functionality
 const nextConfig=()=>{
@@ -94,6 +80,8 @@ const nextConfig=()=>{
               step5.style.display = 'flex';
               document.querySelector('#four').style.backgroundColor="transparent";
               next.disabled = true;
+              next.style.display = 'none';
+              document.querySelector('#sub').style.display = 'flex';
               next.style.opacity = '0.4';
         break;
     }

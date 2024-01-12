@@ -30,9 +30,9 @@
 </div>
 <!-- Sidebar end -->
 
-<form method="post" enctype="multipart/form-data" action="/getApp" id="myforms" class="flex flex-col justify-between items-center z-40  w-auto sm:w-[70%] h-[90%] sm:h-[100%]">
+<form method="post"  action="/getForm" id="myforms" class="flex flex-col justify-between items-center z-40  w-auto sm:w-[70%] h-[90%] sm:h-[100%]">
 
-  <div  id="content" class="bg-white w-[90%] h-auto rounded-lg p-3 mt-20 sm:mt-14 text-[.9em]">
+<div  id="content" class="bg-white w-[90%] h-auto rounded-lg p-3 mt-20 sm:mt-14 text-[.9em]">
 
 <!-- Step 1 start -->
 <div id="step_1" class="flex  flex-col">
@@ -136,13 +136,14 @@
 <!-- Step 5 end -->
 
 
-</div>
+</div> 
+
 
 <!-- button -->
 <div class="flex w-full h-[4em] justify-between items-center bg-white p-5">
-  <button type="button" name="submit" id="btn_1" value="Go Back" class=" opacity-[0.4] font-medium" disabled>Go Back</button>
-  <button type="button" id="btn_2" value="next step" class="rounded-md bg-blue-900 text-white p-2 font-medium">Next step</button>
-  <button type="submit" id  ="btn_3" value="submit" class="rounded-md bg-blue-900 text-white p-2 font-medium">submit</button>
+  <button id="btn_1" value="Go Back" class=" opacity-[0.4] font-medium" disabled>Go Back</button>
+  <button id="btn_2" value="next step" class="rounded-md bg-blue-900 text-white p-2 font-medium">Next step</button>
+  <!-- <button value="submit" id="sub" class="rounded-md bg-blue-900 text-white p-2 font-medium hidden" disabled>Submit</button> -->
 </div>
 
 
