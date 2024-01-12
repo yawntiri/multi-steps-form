@@ -7,11 +7,11 @@ const appRoutes = require('./routes/route.js');
 
 // --- Middlewares ---
 
-app.use(express.json());// express should accept data in json format
-app.use(express.urlencoded());// express decodes data sent through html
-// app.use(express.static('public'));//rendering application on local host
-app.use(express.static(__dirname + '/public'));// renders application
-app.use('/', appRoutes)// routes end point
+//middleware to handle api endpoint requests
+app.use(express.json());
+app.use(express.urlencoded());
+app.use(express.static(__dirname +'/public'));
+app.use('/', appRoutes)
 
 
 app.listen(port, ()=>{
