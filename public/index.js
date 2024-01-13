@@ -11,11 +11,20 @@ let step5 = document.querySelector('#step_5');
 // Initialize variables
 let id = [];
 let count = 0;
+
+//Submit button 
+// const submit =()=>{
+//   document.querySelector('#myforms').addEventListener('submit', (e)=>{
+//     e.preventDefault();
+//   })
+// }
+
 // Event listener for the "Next" button
 next.addEventListener('click', function(e) {
     e.preventDefault();
     count++;
     id.push(count);
+    console.log(count)
     return nextConfig();
 });
 
@@ -23,12 +32,13 @@ next.addEventListener('click', function(e) {
 // Event listener for the "Previous" button
 
 prev.addEventListener('click', function(e) {
+  e.preventDefault();
   count--;
-  id.shift(count )
+  id.pop();
+  console.log(count)
   return prevConfig();
+
 });
-
-
 // Function to handle next button functionality
 const nextConfig=()=>{
     switch(id.length){
@@ -72,57 +82,59 @@ const nextConfig=()=>{
               step4.style.display = 'flex';
               document.querySelector('#three').style.backgroundColor="transparent";
               document.querySelector('#four').style.backgroundColor="rgb(147 197 253 / var(--tw-bg-opacity))";
-        break;
-        case 4:
-            // Step 4: Move to step 5 and disable the "Next" button
-              // subForms(); // sub forms
-              step4.style.display = 'none'; 
-              step5.style.display = 'flex';
-              document.querySelector('#four').style.backgroundColor="transparent";
+              next.innerText = 'Submit';
+              break;
+              case 4:
+                // Step 4: Move to step 5 and disable the "Next" button
+                // subForms(); // sub forms
+                step4.style.display = 'none'; 
+                step5.style.display = 'flex';
+                document.querySelector('#four').style.backgroundColor="transparent";
+                let forms = document.querySelector('#myforms');
+                forms.submit();
               next.disabled = true;
-              next.style.display = 'none';
-              document.querySelector('#sub').style.display = 'flex';
               next.style.opacity = '0.4';
         break;
     }
 }
 
 // Function to handle previous button functionality
-const prevConfig=()=>{
-    switch(id.length){
+const prevConfig = () => {
+    switch (id.length) {
         case 0:
             // Step 0: Move back to step 1 and disable the "Previous" button
-            step1.style.display = 'flex'; 
-            step2.style.display = 'none'; 
-            document.querySelector('#one').style.backgroundColor="rgb(147 197 253 / var(--tw-bg-opacity))";;
-            document.querySelector('#two').style.backgroundColor="transparent";
+            step1.style.display = 'flex';
+            step2.style.display = 'none';
+            document.querySelector('#one').style.backgroundColor = "rgb(147 197 253 / var(--tw-bg-opacity))";;
+            document.querySelector('#two').style.backgroundColor = "transparent";
             prev.disabled = true;
             prev.style.opacity = '0.4';
-        break;   
+            break;
         case 1:
             // Step 1: Move back to step 2
-            step2.style.display = 'flex'; 
-            step3.style.display = 'none'; 
-            document.querySelector('#two').style.backgroundColor="rgb(147 197 253 / var(--tw-bg-opacity))";;
-            document.querySelector('#three').style.backgroundColor="transparent";
-        break;   
+            step2.style.display = 'flex';
+            step3.style.display = 'none';
+            document.querySelector('#two').style.backgroundColor = "rgb(147 197 253 / var(--tw-bg-opacity))";;
+            document.querySelector('#three').style.backgroundColor = "transparent";
+            break;
         case 2:
             // Step 2: Move back to step 3
-            step3.style.display = 'flex'; 
-            step4.style.display = 'none'; 
-            document.querySelector('#three').style.backgroundColor="rgb(147 197 253 / var(--tw-bg-opacity))";;
-            document.querySelector('#four').style.backgroundColor="transparent";
-        break;   
+            step3.style.display = 'flex';
+            step4.style.display = 'none';
+            document.querySelector('#three').style.backgroundColor = "rgb(147 197 253 / var(--tw-bg-opacity))";;
+            document.querySelector('#four').style.backgroundColor = "transparent";
+            break;
         case 3:
             // Step 3: Move back to step 4 and enable the "Next" button
-            step4.style.display = 'flex'; 
-            step5.style.display = 'none'; 
-            document.querySelector('#four').style.backgroundColor="rgb(147 197 253 / var(--tw-bg-opacity))";
+            step4.style.display = 'flex';
+            step5.style.display = 'none';
+            document.querySelector('#four').style.backgroundColor = "rgb(147 197 253 / var(--tw-bg-opacity))";
             next.disabled = false;
             next.style.opacity = '1';
-        break;   
+            break;
     }
-}
+};
+
 
 
 
