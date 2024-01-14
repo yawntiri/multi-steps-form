@@ -4,7 +4,7 @@
   "description": "![Design preview for the Multi-step form coding challenge](./design/desktop-preview.jpg)",
   "main": "index.js",
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   },
   "scripts": {
     "start": "nodemon server.js",
